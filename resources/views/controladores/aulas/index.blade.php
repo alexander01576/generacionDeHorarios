@@ -1,0 +1,77 @@
+@extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
+
+@section('content')
+    @include('layouts.navbars.auth.topnav', ['title' => 'Dashboard'])
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-xl-12 col-sm-12 mb-xl-0 mb-12">
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header pb-2">
+                                        <div class="row">
+                                            <div class="col-md-6 float-start">
+                                                <span class="h3">Aulas de clase</span>
+                                            </div>
+                                            <div class="col-md-6 d-flex justify-content-end">
+                                                <a href="{{ route('aulas.create') }}" class="btn btn-success"
+                                                    title="Agregar">Registrar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body p-5 pt-2">
+                                        <table id="tblListado" class="compact table-sm" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Id</th>
+                                                    <th>Nombre</th>
+                                                    <th>Capacidad</th>
+                                                    <th>Ubicacion</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($aula as $item)
+                                                    <tr>
+                                                        <td>{{ $item->aula_id }}</td>
+                                                        <td>{{ $item->nombre }}</td>
+                                                        <td>{{ $item->capacidad }}</td>
+                                                        <td>{{ $item->ubicacion }}</td>
+                                                        <td>
+                                                            <form
+                                                                action="{{ route('aulas.destroy', $item->id) }}"
+                                                                method="POST" class="frmEliminar">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <a href="{{ route('aulas.edit', $item) }}"
+                                                                    class="btn btn-sm btn-primary" title="Editar">
+                                                                    <i class="fa fa-pencil-square"></i>
+                                                                </a>
+                                                                <button class="btn btn-sm btn-danger"
+                                                                    data-toggle="tooltip-top" data-placement="top"
+                                                                    type="submit" title="Eliminar">
+                                                                    <i class="fas fa-trash"></i>
+                                                                </button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                </section>
+                <!-- /.content -->
+            </div>
+        </div>
+    </div>
+@endsection
