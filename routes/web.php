@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AulaController;
+use App\Http\Controllers\CarrerasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,7 @@ use App\Http\Controllers\ChangePassword;
 
 Route::resources([
     'aulas' => AulaController::class,
+    'carreras' => CarrerasController::class,
 ]);
 
 Route::get('/', function () {

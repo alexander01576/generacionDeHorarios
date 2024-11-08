@@ -15,7 +15,7 @@
                             </div>
                             <div class="col-md-1">
                                 <div class="numbers">
-                                    <a href="{{ route('aulas.index') }}" class="btn btn-primary">Aulas</a>
+                                    <a href="{{ route('carreras.index') }}" class="btn btn-primary">Carreras</a>
                                 </div>
                             </div>
                         </div>
@@ -23,8 +23,6 @@
                 </div>
             </div>
         </div>
-
-
         @include('layouts.footers.auth.footer')
     </div>
 @endsection

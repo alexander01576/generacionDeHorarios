@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Aula;
+use App\Models\Carreras;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
 
-class AulaController extends Controller
+class CarrerasController extends Controller
 {
     public function __construct()
     {
@@ -17,13 +17,13 @@ class AulaController extends Controller
 
     public function index()
     {
-        $aula = Aula::where('estatus', 1)->get();
-        return view('controladores.aulas.index', compact('aula'));
+        $carreras = Carreras::where('estatus', 1)->get();
+        return view('controladores.carreras.index', compact('carreras'));
     }
 
     public function create()
     {
-        return view('controladores.aulas.create');
+        return view('controladores.carreras.create');
     }
 
     public function store(Request $request)
@@ -33,11 +33,9 @@ class AulaController extends Controller
 
             $atributos = $this->validate($request, [
                 'nombre' => 'required',
-                'capacidad' => 'required',
-                'ubicacion' => 'required',
             ]);
 
-            $aula = Aula::create($atributos);
+            $carrera = Carreras::create($atributos);
 
             //Registro del log
             $ruta = Route::currentRouteName();
@@ -56,23 +54,22 @@ class AulaController extends Controller
         }
     }
 
-    public function edit(Aula $aula)
+
+    public function edit(Carreras $carrera)
     {
-        return view('controladores.aulas.edit', compact('aula'));
+        return view('controladores.carreras.edit', compact('carrera'));
     }
 
-    public function update(Request $request, Aula $aula)
+    public function update(Request $request, Carreras $carrera)
     {
         try {
             DB::beginTransaction();
 
             $atributos = $this->validate($request, [
                 'nombre' => 'required',
-                'capacidad' => 'required',
-                'ubicacion' => 'required',
             ]);
 
-            $aula->update($atributos);
+            $carrera->update($atributos);
 
             //Registro del log
             $ruta = Route::currentRouteName();
@@ -93,7 +90,7 @@ class AulaController extends Controller
 
     public function destroy($id)
     {
-        $aula1 = Aula::findorfail($id);
+        $aula1 = Carreras::findorfail($id);
         $aula1->estatus = 0;
         $aula1->save();
 
@@ -105,6 +102,5 @@ class AulaController extends Controller
             json_encode($aula1)
         );
 
-        return redirect()->route('aulas.index');
-    }
-}
+        return redirect()->route('carreras.index');
+    }}
