@@ -1,7 +1,7 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Dashboard'])
+    @include('layouts.navbars.auth.topnav', ['title' => 'Aulas'])
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-xl-12 col-sm-12 mb-xl-0 mb-12">
@@ -13,7 +13,7 @@
                                     <div class="card-header pb-2">
                                         <div class="row">
                                             <div class="col-md-6 float-start">
-                                                <span class="h3">Aulas de clase</span>
+                                                <span class="h3">Listado</span>
                                             </div>
                                             <div class="col-md-6 d-flex justify-content-end">
                                                 <a href="{{ route('aulas.create') }}" class="btn btn-success"
@@ -22,7 +22,7 @@
                                         </div>
                                     </div>
                                     <div class="card-body p-5 pt-2">
-                                        <table id="tblListado" class="compact table-sm" style="width:100%">
+                                        <table id="tblListado" class="table table-striped display compact row-border stripe" style="width:100%">
                                             <thead>
                                                 <tr>
                                                     <th>Id</th>
@@ -35,7 +35,7 @@
                                             <tbody>
                                                 @foreach ($aula as $item)
                                                     <tr>
-                                                        <td>{{ $item->aula_id }}</td>
+                                                        <td>{{ $item->id }}</td>
                                                         <td>{{ $item->nombre }}</td>
                                                         <td>{{ $item->capacidad }}</td>
                                                         <td>{{ $item->ubicacion }}</td>
@@ -46,10 +46,10 @@
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <a href="{{ route('aulas.edit', $item) }}"
-                                                                    class="btn btn-sm btn-primary" title="Editar">
+                                                                    class="btn btn-sm btn-primary pl-2 pr-2 pb-1 pt-1 mb-0" title="Editar">
                                                                     <i class="fa fa-pencil-square"></i>
                                                                 </a>
-                                                                <button class="btn btn-sm btn-danger"
+                                                                <button class="btn btn-sm btn-danger pl-2 pr-2 pb-1 pt-1 mb-0"
                                                                     data-toggle="tooltip-top" data-placement="top"
                                                                     type="submit" title="Eliminar">
                                                                     <i class="fas fa-trash"></i>

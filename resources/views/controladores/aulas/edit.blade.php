@@ -1,7 +1,7 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Edicion aula'])
+    @include('layouts.navbars.auth.topnav', ['title' => 'Edición aula'])
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-xl-12 col-sm-12 mb-xl-0 mb-12">
@@ -13,7 +13,7 @@
                                     <div class="card-header pb-2">
                                         <div class="row">
                                             <div class="col-md-6 float-start">
-                                                <span class="h3">Creación de aulas</span>
+                                                <span class="h3">Datos</span>
                                             </div>
 
                                         </div>
