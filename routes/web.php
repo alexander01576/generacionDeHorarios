@@ -26,11 +26,12 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\ChangePassword;
-
+use App\Http\Controllers\SemestresController;
 
 Route::resources([
     'aulas' => AulaController::class,
     'carreras' => CarrerasController::class,
+    'semestres' => SemestresController::class,
 ]);
 
 Route::get('/', function () {

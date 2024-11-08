@@ -18,6 +18,11 @@
                                     <a href="{{ route('carreras.index') }}" class="btn btn-primary">Carreras</a>
                                 </div>
                             </div>
+                            <div class="col-md-1">
+                                <div class="numbers">
+                                    <a href="{{ route('semestres.index') }}" class="btn btn-primary">Semestres</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
