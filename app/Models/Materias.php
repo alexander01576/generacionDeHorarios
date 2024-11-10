@@ -14,12 +14,12 @@ class Materias extends Model
 
     public function carrera()
     {
-        return $this->belongsTo(carreras::class, 'carrera_id');
+        return $this->belongsTo(Carreras::class, 'carrera_id');
     }
 
     public function semestre()
     {
-        return $this->belongsTo(semestres::class, 'semestre_id');
+        return $this->belongsTo(Semestres::class, 'semestre_id');
     }
 
     // public function asignaciones()
