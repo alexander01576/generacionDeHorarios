@@ -25,7 +25,7 @@
                             </div>
                             <div class="col-md-1">
                                 <div class="numbers">
-                                    <a href="{{ route('profesores.index') }}" class="btn btn-primary">Profesores</a>
+                                    <a href="{{ route('maestros.index') }}" class="btn btn-primary">Maestros</a>
                                 </div>
                             </div>
                         </div>
