@@ -31,7 +31,7 @@
                 </li>
                 <li class="nav-item px-3 d-flex align-items-center">
                     <nav aria-label="breadcrumb">
-                        <a href="/user/{{ Auth::user()->id }}" class="btn btn-dark">
+                        <a href="{{ route('profile') }}" class="btn btn-dark">
                             <p class="text-white m-0">Sesion actual: {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</p>
                         </a>
                     </nav>
