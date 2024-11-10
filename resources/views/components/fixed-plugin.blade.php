@@ -5,8 +5,8 @@
     <div class="card shadow-lg">
         <div class="card-header pb-0 pt-3 ">
             <div class="float-start">
-                <h5 class="mt-3 mb-0">Argon Configurator</h5>
-                <p>See our dashboard options.</p>
+                <h5 class="mt-3 mb-0">Configuracion de la pagina</h5>
+                <p>Opciones de sistema.</p>
             </div>
             <div class="float-end mt-4">
                 <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
@@ -15,13 +15,49 @@
             </div>
             <!-- End Toggle Button -->
         </div>
-        <hr class="horizontal dark my-1">
         <div class="card-body pt-sm-3 pt-0 overflow-auto">
             <!-- Sidebar Backgrounds -->
             <div>
-                <h6 class="mb-0">Sidebar Colors</h6>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::currentRouteName() == 'home' ? 'active' : '' }}"
+                            href="{{ route('home') }}">
+                            <span class="nav-link-text ms-1">Inicio</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::is('aulas.*') ? 'active' : '' }}"
+                            href="{{ route('aulas.index') }}">
+                            <span class="nav-link-text ms-1">Aulas</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::is('carreras.*') ? 'active' : '' }}"
+                            href="{{ route('carreras.index') }}">
+                            <span class="nav-link-text ms-1">Carreras</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::is('semestres.*') ? 'active' : '' }}"
+                            href="{{ route('semestres.index') }}">
+                            <span class="nav-link-text ms-1">Semestres</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::is('maestros.*') ? 'active' : '' }}"
+                            href="{{ route('maestros.index') }}">
+                            <span class="nav-link-text ms-1">Maestros</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::is('periodos.*') ? 'active' : '' }}"
+                            href="{{ route('periodos.index') }}">
+                            <span class="nav-link-text ms-1">Periodos Academicos</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <a href="javascript:void(0)" class="switch-trigger background-color">
+            {{-- <a href="javascript:void(0)" class="switch-trigger background-color">
                 <div class="badge-colors my-2 text-start">
                     <span class="badge filter bg-gradient-primary active" data-color="primary"
                         onclick="sidebarColor(this)"></span>
@@ -54,7 +90,7 @@
                     <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed"
                         onclick="navbarFixed(this)">
                 </div>
-            </div>
+            </div> --}}
             <hr class="horizontal dark my-sm-4">
             <div class="mt-2 mb-5 d-flex">
                 <h6 class="mb-0">Light / Dark</h6>
@@ -63,24 +99,7 @@
                         onclick="darkMode(this)">
                 </div>
             </div>
-            <a class="btn bg-gradient-dark w-100" href="https://www.creative-tim.com/product/argon-dashboard-laravel" target="_blank">Free Download</a>
-            <a class="btn btn-outline-dark w-100"
-                href="/docs/bootstrap/overview/argon-dashboard/index.html" target="_blank">View documentation</a>
-            <div class="w-100 text-center">
-                <a class="github-button" href="https://github.com/creativetimofficial/argon-dashboard-laravel"
-                    data-icon="octicon-star" data-size="large" data-show-count="true"
-                    aria-label="Star creativetimofficial/argon-dashboard on GitHub">Star</a>
-                <h6 class="mt-3">Thank you for sharing!</h6>
-                <a href="https://twitter.com/intent/tweet?text=Check%20Argon%20Dashboard%20made%20by%20%40CreativeTim%20and%20%40UPDIVISION%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fargon-dashboard-laravel"
-                    class="btn btn-dark mb-0 me-2" target="_blank">
-                    {{-- &amp;url2=https%3A%2F%2Fwww.updivision.com --}}
-                    <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
-                </a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/argon-dashboard-laravel"
-                    class="btn btn-dark mb-0 me-2" target="_blank">
-                    <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
-                </a>
-            </div>
+
         </div>
     </div>
 </div>

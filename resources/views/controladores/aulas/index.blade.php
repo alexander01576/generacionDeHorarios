@@ -18,6 +18,7 @@
                                             <div class="col-md-6 d-flex justify-content-end">
                                                 <a href="{{ route('aulas.create') }}" class="btn btn-success"
                                                     title="Agregar">Registrar</a>
+
                                             </div>
                                         </div>
                                     </div>
