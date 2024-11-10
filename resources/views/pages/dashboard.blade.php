@@ -8,24 +8,29 @@
                 <div class="card">
                     <div class="card-body p-3">
                         <div class="row">
-                            <div class="col-md-1">
+                            <div class="col-md-2">
                                 <div class="numbers">
                                     <a href="{{ route('aulas.index') }}" class="btn btn-primary">Aulas</a>
                                 </div>
                             </div>
-                            <div class="col-md-1">
+                            <div class="col-md-2">
                                 <div class="numbers">
                                     <a href="{{ route('carreras.index') }}" class="btn btn-primary">Carreras</a>
                                 </div>
                             </div>
-                            <div class="col-md-1">
+                            <div class="col-md-2">
                                 <div class="numbers">
                                     <a href="{{ route('semestres.index') }}" class="btn btn-primary">Semestres</a>
                                 </div>
                             </div>
-                            <div class="col-md-1">
+                            <div class="col-md-2">
                                 <div class="numbers">
                                     <a href="{{ route('maestros.index') }}" class="btn btn-primary">Maestros</a>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="numbers">
+                                    <a href="{{ route('periodos.index') }}" class="btn btn-primary">Periodos Academicos</a>
                                 </div>
                             </div>
                         </div>

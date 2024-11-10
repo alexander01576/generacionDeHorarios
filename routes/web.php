@@ -25,17 +25,18 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\ChangePassword;
-use App\Http\Controllers\ProfesoresController;
 use App\Http\Controllers\CarrerasController;
 use App\Http\Controllers\MaestrosController;
+use App\Http\Controllers\PeriodosAcademicosController;
 use App\Http\Controllers\SemestresController;
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resources([
-        'maestros' => MaestrosController::class,
         'aulas' => AulaController::class,
         'carreras' => CarrerasController::class,
         'semestres' => SemestresController::class,
+        'maestros' => MaestrosController::class,
+        'periodos' => PeriodosAcademicosController::class,
     ]);
 });
 
