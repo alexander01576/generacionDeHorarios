@@ -27,6 +27,7 @@ use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\ChangePassword;
 use App\Http\Controllers\CarrerasController;
 use App\Http\Controllers\MaestrosController;
+use App\Http\Controllers\MateriasController;
 use App\Http\Controllers\PeriodosAcademicosController;
 use App\Http\Controllers\SemestresController;
 
@@ -37,6 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
         'semestres' => SemestresController::class,
         'maestros' => MaestrosController::class,
         'periodos' => PeriodosAcademicosController::class,
+        'materias' => MateriasController::class,
     ]);
 });
 

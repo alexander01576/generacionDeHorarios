@@ -12,8 +12,8 @@ class Carreras extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['nombre', 'estatus'];
 
-    /*public function materias()
+    public function materias()
     {
         return $this->hasMany(materias::class, 'id');
-    }*/
+    }
 }
