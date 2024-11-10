@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\AulaController;
-use App\Http\Controllers\CarrerasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,19 +25,23 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\ChangePassword;
+use App\Http\Controllers\ProfesoresController;
+use App\Http\Controllers\CarrerasController;
+use App\Http\Controllers\MaestrosController;
 use App\Http\Controllers\SemestresController;
 
-Route::resources([
-    'aulas' => AulaController::class,
-    'carreras' => CarrerasController::class,
-    'semestres' => SemestresController::class,
-]);
+Route::group(['middleware' => 'auth'], function () {
+    Route::resources([
+        'maestros' => MaestrosController::class,
+        'aulas' => AulaController::class,
+        'carreras' => CarrerasController::class,
+        'semestres' => SemestresController::class,
+    ]);
+});
 
 Route::get('/', function () {
     return redirect('/dashboard');
 })->middleware('auth');
-
-
 
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest')->name('register.perform');
