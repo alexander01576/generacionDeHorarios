@@ -61,6 +61,12 @@
                             <span class="nav-link-text ms-1">Materias</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::is('asignaciones.*') ? 'btn btn-sm btn-warning' : '' }}"
+                            href="{{ route('asignaciones.index') }}">
+                            <span class="nav-link-text ms-1">Asignaciones</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             {{-- <a href="javascript:void(0)" class="switch-trigger background-color">

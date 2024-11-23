@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AsignacionesController;
 use App\Http\Controllers\AulaController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
         'maestros' => MaestrosController::class,
         'periodos' => PeriodosAcademicosController::class,
         'materias' => MateriasController::class,
+        'asignaciones' => AsignacionesController::class,
     ]);
 });
 

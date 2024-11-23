@@ -38,6 +38,11 @@
                                     <a href="{{ route('periodos.index') }}" class="btn btn-primary">Materias</a>
                                 </div>
                             </div>
+                            <div class="col-md-2">
+                                <div class="numbers">
+                                    <a href="{{ route('asignaciones.index') }}" class="btn btn-primary">Asignaciones</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

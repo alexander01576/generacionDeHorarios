@@ -46,7 +46,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Route::is('semestres.*') ? 'active' : '' }}" href="{{ route('semestres.index') }}">
+                <a class="nav-link {{ Route::is('semestres.*') ? 'active' : '' }}"
+                    href="{{ route('semestres.index') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
@@ -55,7 +56,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Route::is('maestros.*') ? 'active' : '' }}" href="{{ route('maestros.index') }}">
+                <a class="nav-link {{ Route::is('maestros.*') ? 'active' : '' }}"
+                    href="{{ route('maestros.index') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
@@ -64,7 +66,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Route::is('periodos.*') ? 'active' : '' }}" href="{{ route('periodos.index') }}">
+                <a class="nav-link {{ Route::is('periodos.*') ? 'active' : '' }}"
+                    href="{{ route('periodos.index') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
@@ -73,12 +76,23 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Route::is('materias.*') ? 'active' : '' }}" href="{{ route('materias.index') }}">
+                <a class="nav-link {{ Route::is('materias.*') ? 'active' : '' }}"
+                    href="{{ route('materias.index') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Materias</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Route::is('asignaciones.*') ? 'active' : '' }}"
+                    href="{{ route('asignaciones.index') }}">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Asignaciones</span>
                 </a>
             </li>
         </ul>
