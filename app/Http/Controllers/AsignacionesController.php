@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Asignaciones;
 use App\Models\Maestros;
 use App\Models\Materias;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 class AsignacionesController extends Controller
 {
@@ -27,12 +30,33 @@ class AsignacionesController extends Controller
         return view('controladores.asignaciones.create', compact('materias', 'maestros'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        DB::beginTransaction();
+        try {
+
+            $atributos = $this->validate($request, [
+                'materia_id' => 'required',
+                'maestro_id' => 'required',
+            ]);
+
+            $asignacion = Asignaciones::create($atributos);
+
+            //Registro del log
+            $ruta = Route::currentRouteName();
+            $logController = new LogController();
+            $logController->newLog(
+                auth()->user()->id,
+                $ruta,
+                json_encode($atributos)
+            );
+
+            DB::commit();
+            return response()->json(['message' => 'Se ha guardado correctamente, volviendo al inicio']);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return response()->json(['error' => $e->getMessage()]);
+        }
     }
 
     /**

@@ -1,7 +1,7 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Creacion de aula'])
+    @include('layouts.navbars.auth.topnav', ['title' => 'Asignacion de materia - profesor'])
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-xl-12 col-sm-12 mb-xl-0 mb-12">
@@ -24,18 +24,23 @@
                                             @method('POST')
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label for="">Nombre del aula</label>
-                                                    <input type="text" name="nombre" id="nombre"
-                                                        placeholder="Nombre aula" class="form-control" required>
+                                                    <label for="materia_id">Materia</label>
+                                                    <select name="materia_id" id="materia_id" class="form-control" required>
+                                                        <option value="">-- Seleccione una opción --</option>
+                                                        @foreach ($materias as $item)
+                                                            <option value="{{ $item->id }}">{{ $item->nombre }}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <label for="">Capacidad del aula</label>
-                                                    <input type="number" name="capacidad" id="capacidad" class="form-control" placeholder="0" required>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label for="">Ubicacion del aula</label>
-                                                    <input type="text" name="ubicacion" id="ubicacion"
-                                                        placeholder="Ubicacion aula" class="form-control" required>
+                                                    <label for="maestro_id">Maestro</label>
+                                                    <select name="maestro_id" id="maestro_id" class="form-control"
+                                                        required>
+                                                        <option value="">-- Seleccione una opción --</option>
+                                                        @foreach ($maestros as $item)
+                                                            <option value="{{ $item->id }}">{{ $item->nombre }}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -73,7 +78,7 @@
 
             console.log();
 
-            submit_with_ajax("{{ route('aulas.store') }}", 'POST', parameters,
+            submit_with_ajax("{{ route('asignaciones.store') }}", 'POST', parameters,
                 function(data) {
                     Swal.fire({
                         title: 'Alerta',
@@ -81,7 +86,7 @@
                         icon: 'success',
                         timer: 1000,
                         onClose: () => {
-                            location.href = "{{ route('aulas.index') }}";
+                            location.href = "{{ route('asignaciones.index') }}";
                         }
                     });
                 });

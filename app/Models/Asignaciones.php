@@ -17,7 +17,7 @@ class Asignaciones extends Model
         return $this->belongsTo(Materias::class, 'materia_id');
     }
 
-    public function profesor()
+    public function maestro()
     {
         return $this->belongsTo(Maestros::class, 'profesor_id');
     }
