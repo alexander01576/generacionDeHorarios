@@ -59,35 +59,56 @@ class AsignacionesController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Asignaciones $asignaciones)
+    public function edit(Asignaciones $asignacione)
     {
-        //
+        $materias = Materias::where('estatus', 1)->get();
+        $maestros = Maestros::where('estatus', 1)->get();
+        return view('controladores.asignaciones.edit', compact('asignacione', 'materias', 'maestros'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Asignaciones $asignaciones)
+    public function update(Request $request, Asignaciones $asignacione)
     {
-        //
+        try {
+            DB::beginTransaction();
+
+            $atributos = $this->validate($request, [
+                'materia_id' => 'required',
+                'maestro_id' => 'required',
+            ]);
+
+            $asignacione->update($atributos);
+
+            //Registro del log
+            $ruta = Route::currentRouteName();
+            $logController = new LogController();
+            $logController->newLog(
+                auth()->user()->id,
+                $ruta,
+                json_encode($atributos)
+            );
+
+            DB::commit();
+            return response()->json(['message' => 'Se ha guardado correctamente, volviendo al inicio']);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return response()->json(['error' => $e->getMessage()]);
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Asignaciones $asignaciones)
+    public function destroy($id)
     {
-        //
-    }
+        $valor = Asignaciones::findorfail($id);
+        $valor->estatus = 0;
+        $valor->save();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Asignaciones $asignaciones)
-    {
-        //
+        // Registro del log
+        $logController = new LogController();
+        $logController->newLog(
+            auth()->user()->id,
+            Route::currentRouteName(),
+            json_encode($valor)
+        );
+
+        return redirect()->route('asignaciones.index');
     }
 }

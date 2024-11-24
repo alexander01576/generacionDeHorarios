@@ -24,21 +24,25 @@
                                             @method('PUT')
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label for="">Nombre del aula</label>
-                                                    <input type="text" name="nombre" id="nombre"
-                                                        placeholder="Nombre aula" class="form-control"
-                                                        value="{{ $aula->nombre }}" required>
+                                                    <label for="materia_id">Materia</label>
+                                                    <select name="materia_id" id="materia_id" class="form-control" required>
+                                                        <option value="{{ $asignacione->materia_id }}" selected>
+                                                            {{ $asignacione->materia->nombre }}</option>
+                                                        @foreach ($materias as $item)
+                                                            <option value="{{ $item->id }}">{{ $item->nombre }}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <label for="">Capacidad del aula</label>
-                                                    <input type="number" name="capacidad" id="capacidad"
-                                                        class="form-control" value="{{ $aula->capacidad }}" required>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label for="">Ubicacion del aula</label>
-                                                    <input type="text" name="ubicacion" id="ubicacion"
-                                                        placeholder="Ubicacion aula" class="form-control"
-                                                        value="{{ $aula->ubicacion }}" required>
+                                                    <label for="maestro_id">Maestro</label>
+                                                    <select name="maestro_id" id="maestro_id" class="form-control"
+                                                        required>
+                                                        <option value="{{ $asignacione->maestro_id }}" selected>
+                                                            {{ $asignacione->maestro->nombre }}</option>
+                                                        @foreach ($maestros as $item)
+                                                            <option value="{{ $item->id }}">{{ $item->nombre }}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -87,7 +91,7 @@
             parameters.append('_token', '{{ csrf_token() }}');
             parameters.append('_method', 'PUT');
 
-            submit_with_ajax("{{ route('aulas.update', $aula->id) }}", 'POST', parameters,
+            submit_with_ajax("{{ route('asignaciones.update', $asignacione->id) }}", 'POST', parameters,
                 function(data) {
                     Swal.fire({
                         title: 'Alerta',
@@ -95,7 +99,7 @@
                         icon: 'success',
                         timer: 1000,
                         onClose: () => {
-                            location.href = "{{ route('aulas.index') }}";
+                            location.href = "{{ route('asignaciones.index') }}";
                         }
                     });
                 });

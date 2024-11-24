@@ -37,7 +37,7 @@
                                                     <tr>
                                                         <td>{{ $item->id }}</td>
                                                         <td>{{ $item->materia->nombre }}</td>
-                                                        <td>{{ $item->profesor->nombre }}</td>
+                                                        <td>{{ $item->maestro->nombre }}</td>
                                                         <td>
                                                             <form
                                                                 action="{{ route('asignaciones.destroy', $item->id) }}"

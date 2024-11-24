@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('asignaciones', function (Blueprint $table) {
             $table->id();
             $table->foreignId('materia_id')->constrained('materias')->onDelete('cascade');
-            $table->foreignId('profesor_id')->constrained('profesores')->onDelete('cascade');
+            $table->foreignId('maestro_id')->constrained('maestros')->onDelete('cascade');
             $table->boolean('estatus')->default(1);
             $table->timestamps();
         });

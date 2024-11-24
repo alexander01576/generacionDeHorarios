@@ -10,7 +10,7 @@ class Asignaciones extends Model
     use HasFactory;
 
     protected $primaryKey = 'id';
-    protected $fillable = ['materia_id', 'profesor_id'];
+    protected $fillable = ['materia_id', 'maestro_id', 'estatus'];
 
     public function materia()
     {
@@ -19,6 +19,6 @@ class Asignaciones extends Model
 
     public function maestro()
     {
-        return $this->belongsTo(Maestros::class, 'profesor_id');
+        return $this->belongsTo(Maestros::class, 'maestro_id');
     }
 }
