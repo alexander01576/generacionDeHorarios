@@ -27,9 +27,11 @@ use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\ChangePassword;
 use App\Http\Controllers\CarrerasController;
+use App\Http\Controllers\HorariosController;
 use App\Http\Controllers\MaestrosController;
 use App\Http\Controllers\MateriasController;
 use App\Http\Controllers\PeriodosAcademicosController;
+use App\Http\Controllers\RestriccionHorariosController;
 use App\Http\Controllers\SemestresController;
 
 Route::group(['middleware' => 'auth'], function () {
@@ -41,6 +43,8 @@ Route::group(['middleware' => 'auth'], function () {
         'periodos' => PeriodosAcademicosController::class,
         'materias' => MateriasController::class,
         'asignaciones' => AsignacionesController::class,
+        'horarios' => HorariosController::class,
+        'restricciones' => RestriccionHorariosController::class,
     ]);
 });
 
